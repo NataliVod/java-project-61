@@ -2,13 +2,11 @@ package hexlet.code;
 
 import java.util.Scanner;
 
- class Cli {
-
-     
+class Cli {
     public static void sayHello() {
         System.out.println("May I have your name?");
         Scanner scanner = new Scanner(System.in);
-        String playerName = scanner.next();
+        String playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
         scanner.close();
     }
