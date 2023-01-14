@@ -13,14 +13,14 @@ public class Calc {
         var win = Engine.startGame(gameRules, rightAnswers);
         Engine.endGame(win, playerName);
     }
-    public static String[][] generateRightAnswers() {
+    private static String[][] generateRightAnswers() {
         String[][] result = new String[3][2];
         for (var i = 0; i < 3; i++) {
             result[i] = calculate(); //
         }
         return result;
     }
-    public static String[] calculate() {         //считаем
+    private static String[] calculate() {         //считаем
         String[] result = new String[2];
         var number1 = getRandomOperand();
         var number2 = getRandomOperand();
@@ -43,11 +43,10 @@ public class Calc {
         }
         return result;
     }
-    public static int getRandomOperand() {
-        return (int) (Math.random() * 19) + 1; // может поменять диапазон?
+    private static int getRandomOperand() {
+        return (int) (Math.random() * 19) + 1;
     }
-
-    public static int getRandomOperator() {
+    private static int getRandomOperator() {
         return  (int) (Math.random() * 2) + 1;
     } // 1 для +, 2 для -, 3 для *
 

@@ -13,15 +13,15 @@ public class Even {
         var win = Engine.startGame(gameRules, rightAnswers);
         Engine.endGame(win, playerName);
     }
-    public static String[][] generateRightAnswers() {
+    private static String[][] generateRightAnswers() {
         String[][] result = new String[3][2];
         for (var i = 0; i < 3; i++) {
-            result[i] = answer(); //
+            result[i] = answer();
         }
         return result;
-    }
+    } // набор данных для движка
 
-    public static String[] answer() {         //считаем
+    private static String[] answer() {         //пара вопрос-ответ
         String[] result = new String[2];
         var number = getRandomNumber();
         result[0] = "Question: " + number + " ";
@@ -29,11 +29,11 @@ public class Even {
 
         return result;
     }
-    public static int getRandomNumber() {
+    private static int getRandomNumber() {
 
         return (int) (Math.random() * 100000) + 1; // может поменять диапазон
     }
-    public static String isEven(int number) {
+    private static String isEven(int number) {
         if (number % 2 == 0) {
             return "yes";
         }

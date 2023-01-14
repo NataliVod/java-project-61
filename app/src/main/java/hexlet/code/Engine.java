@@ -20,20 +20,20 @@ public class Engine {
             win = true;
         }
         return win;
-    }
-    public static boolean playRound(String question, String rightAnswer) {
+    } // 3 рануда игры
+    private static boolean playRound(String question, String rightAnswer) {
         System.out.println(question);
         System.out.print("Your answer: ");
         var playerAnswer = getPlayerAnswer();
         var result = playerAnswer.equals(rightAnswer);
         reactToPlayerAnswer(result, playerAnswer, rightAnswer);
         return result;
-    }
-    public static String getPlayerAnswer() {
+    } // один круг игры
+    private static String getPlayerAnswer() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
-    }
-    public static void reactToPlayerAnswer(boolean isRightAnswer, String playerAnswer, String rightAnswer) {
+    } // ответ игрока
+    private static void reactToPlayerAnswer(boolean isRightAnswer, String playerAnswer, String rightAnswer) {
         if (isRightAnswer) {
             System.out.println("Correct!");
         } else {
