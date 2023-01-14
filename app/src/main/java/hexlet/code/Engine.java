@@ -39,7 +39,7 @@ public class Engine {
         } else {
             System.out.printf("%s is wrong answer ;(. Correct answer was %s%n", playerAnswer, rightAnswer);
         }
-    } // сообщение после ответа игрока, название неудачное - надо поменять
+    } // сообщение после ответа игрока
 
     public static void endGame(boolean win, String playerName) {
         if (win) {
