@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Greeter;
+import hexlet.code.Utility;
 
 public class Progression {
     static final int MAX_ROUNDS = 3;
@@ -9,27 +9,24 @@ public class Progression {
     static final int MAX_NUMBERS = 15;
     static final int MIN_NUMBERS = 5;
     public static void playGame() {
-        var playerName = Greeter.getPlayerName();
-        Greeter.sayHello(playerName);
         String gameRules = "What number is missing in the progression?";
         String[][] rightAnswers = generateRightAnswers();
-        var win = Engine.startGame(gameRules, rightAnswers);
-        Engine.endGame(win, playerName);
+        Engine.startGame(gameRules, rightAnswers);
     }
     private static String[][] generateRightAnswers() {
         String[][] result = new String[MAX_ROUNDS][2];
         for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = answer(); //
+            result[i] = generateProgression(); //
         }
         return result;
     }
 
-    private static String[] answer() {         //считаем
-        var length = getRandomLength();
+    private static String[] generateProgression() {         //считаем
+        var length = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
         String[] result = new String[2];
-        var firstNumber = getRandomNumber();
-        var progressionStep = getRandomNumber() + 1; //чтобы не было шага 1
-        var position = getRandomPosition(length);
+        var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
+        var progressionStep = Utility.getRandomNumber(2, MAX_NUMBER);
+        var position = Utility.getRandomNumber(0, length);
         result[0] = "Question: " + firstNumber + " ";
         var nextNumber = firstNumber;
         for (var i = 0; i < length; i++) {
@@ -44,15 +41,5 @@ public class Progression {
 
         return result;
     }
-    private static int getRandomNumber() {
-        return (int) (Math.random() * (MAX_NUMBER - 1)) + 1;
-    }
 
-    private static int getRandomLength() {
-        return (int) (Math.random() * (MAX_NUMBERS - MIN_NUMBERS)) + MIN_NUMBERS;
-    }
-
-    private static int getRandomPosition(int length) {
-        return (int) (Math.random() * (length));
-    }
 }

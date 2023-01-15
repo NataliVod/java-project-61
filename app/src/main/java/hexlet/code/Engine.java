@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Engine {
     static final int MAX_ROUNDS = 3;
 
-    public static boolean startGame(String gameRules, String[][] rightAnswers) {
+    public static void startGame(String gameRules, String[][] rightAnswers) {
         var counter = 0;
         boolean win = false;
+        var playerName = Utility.sayHello();
         System.out.println(gameRules);
         for (var i = 0; i < MAX_ROUNDS; i++) {
             var winThisRound = playRound(rightAnswers[i][0], rightAnswers[i][1]);
@@ -19,7 +20,7 @@ public class Engine {
         if (counter == MAX_ROUNDS) {
             win = true;
         }
-        return win;
+        endGame(win, playerName);
     } // 3 рануда игры
     private static boolean playRound(String question, String rightAnswer) {
         System.out.println(question);
@@ -41,11 +42,12 @@ public class Engine {
         }
     } // сообщение после ответа игрока
 
-    public static void endGame(boolean win, String playerName) {
+    private static void endGame(boolean win, String playerName) {
         if (win) {
             System.out.println("Congratulations, " + playerName + "!");
         } else {
             System.out.println("Let's try again, " + playerName + "!");
         }
-    } // сообщение в конце игры
+    }
+    // сообщение в конце игры
 }

@@ -9,6 +9,13 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 class App {
+    static final int GREET_GAME = 1;
+    static final int EVEN_GAME = 2;
+    static final int CALC_GAME = 3;
+    static final int GCD_GAME = 4;
+    static final int PROGRESSION_GAME = 5;
+    static final int PRIME_GAME = 6;
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter."); //меню
         System.out.println("1 - Greet");
@@ -29,22 +36,22 @@ class App {
         switch (gameNumber) {
             case 0:
                 break; // выходим
-            case 1:
+            case GREET_GAME:
                 Cli.sayHello(); // приветствие
                 break;
-            case 2:
+            case EVEN_GAME:
                 Even.playGame(); // четное/нечетное
                 break;
-            case 3:
+            case CALC_GAME:
                 Calc.playGame(); // калькулятор
                 break;
-            case 4:
+            case GCD_GAME:
                 GCD.playGame(); // НОД
                 break;
-            case 5:
+            case PROGRESSION_GAME:
                 Progression.playGame(); // прогрессия
                 break;
-            case 6:
+            case PRIME_GAME:
                 Prime.playGame(); // простое число
                 break;
             default:
