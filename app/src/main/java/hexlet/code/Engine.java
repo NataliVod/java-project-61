@@ -8,15 +8,16 @@ public class Engine {
 
         var counter = 0;
         boolean win = false;
+        var numberOfRounds = 3;
         System.out.println(gameRules);
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < numberOfRounds; i++) {
             var winThisRound = playRound(rightAnswers[i][0], rightAnswers[i][1]);
             if (!winThisRound) {
                 break;
             }
             counter++;
         }
-        if (counter == 3) {
+        if (counter == numberOfRounds) {
             win = true;
         }
         return win;

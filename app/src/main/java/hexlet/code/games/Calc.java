@@ -14,8 +14,9 @@ public class Calc {
         Engine.endGame(win, playerName);
     }
     private static String[][] generateRightAnswers() {
-        String[][] result = new String[3][2];
-        for (var i = 0; i < 3; i++) {
+        var numberOfRounds = 3;
+        String[][] result = new String[numberOfRounds][2];
+        for (var i = 0; i < numberOfRounds; i++) {
             result[i] = calculate(); //
         }
         return result;
@@ -44,7 +45,8 @@ public class Calc {
         return result;
     }
     private static int getRandomOperand() {
-        return (int) (Math.random() * 19) + 1;
+        var maxNumber = 100;
+        return (int) (Math.random() * (maxNumber - 1)) + 1;
     }
     private static int getRandomOperator() {
         return  (int) (Math.random() * 2) + 1;

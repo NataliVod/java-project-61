@@ -13,8 +13,9 @@ public class Prime {
         Engine.endGame(win, playerName);
     }
     private static String[][] generateRightAnswers() {
-        String[][] result = new String[3][2];
-        for (var i = 0; i < 3; i++) {
+        var numberOfRounds = 3;
+        String[][] result = new String[numberOfRounds][2];
+        for (var i = 0; i < numberOfRounds; i++) {
             result[i] = answer();
         }
         return result;
@@ -29,8 +30,8 @@ public class Prime {
         return result;
     }
     private static int getRandomNumber() {
-
-        return (int) (Math.random() * 1000) + 1;
+        var maxNumber = 1000;
+        return (int) (Math.random() * (maxNumber - 1)) + 1;
     }
     private static String isPrime(int number) {
         var result = true;

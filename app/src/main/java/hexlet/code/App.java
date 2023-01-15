@@ -25,7 +25,7 @@ class App {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-    public static void playGame(int gameNumber) { //игра
+    private static void playGame(int gameNumber) { //игра
         switch (gameNumber) {
             case 0:
                 break; // выходим
