@@ -5,6 +5,9 @@ import hexlet.code.Greeter;
 
 public class Calc {
 
+    static final int MAX_ROUNDS = 3;
+    static final int MAX_NUMBER = 100;
+
     public static void playGame() {
         var playerName = Greeter.getPlayerName();
         Greeter.sayHello(playerName);
@@ -14,9 +17,8 @@ public class Calc {
         Engine.endGame(win, playerName);
     }
     private static String[][] generateRightAnswers() {
-        var numberOfRounds = 3;
-        String[][] result = new String[numberOfRounds][2];
-        for (var i = 0; i < numberOfRounds; i++) {
+        String[][] result = new String[MAX_ROUNDS][2];
+        for (var i = 0; i < MAX_ROUNDS; i++) {
             result[i] = calculate(); //
         }
         return result;
@@ -45,8 +47,7 @@ public class Calc {
         return result;
     }
     private static int getRandomOperand() {
-        var maxNumber = 100;
-        return (int) (Math.random() * (maxNumber - 1)) + 1;
+        return (int) (Math.random() * (MAX_NUMBER - 1)) + 1;
     }
     private static int getRandomOperator() {
         return  (int) (Math.random() * 2) + 1;

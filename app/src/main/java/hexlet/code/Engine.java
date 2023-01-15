@@ -3,21 +3,20 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    static final int MAX_ROUNDS = 3;
 
     public static boolean startGame(String gameRules, String[][] rightAnswers) {
-
         var counter = 0;
         boolean win = false;
-        var numberOfRounds = 3;
         System.out.println(gameRules);
-        for (var i = 0; i < numberOfRounds; i++) {
+        for (var i = 0; i < MAX_ROUNDS; i++) {
             var winThisRound = playRound(rightAnswers[i][0], rightAnswers[i][1]);
             if (!winThisRound) {
                 break;
             }
             counter++;
         }
-        if (counter == numberOfRounds) {
+        if (counter == MAX_ROUNDS) {
             win = true;
         }
         return win;

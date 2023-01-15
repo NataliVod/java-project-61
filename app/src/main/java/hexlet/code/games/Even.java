@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Greeter;
 
 public class Even {
+    static final int MAX_ROUNDS = 3;
+    static final int MAX_NUMBER = 100000;
 
     public static void playGame() {
         var playerName = Greeter.getPlayerName();
@@ -14,9 +16,8 @@ public class Even {
         Engine.endGame(win, playerName);
     }
     private static String[][] generateRightAnswers() {
-        var numberOfRounds = 3;
-        String[][] result = new String[numberOfRounds][2];
-        for (var i = 0; i < numberOfRounds; i++) {
+        String[][] result = new String[MAX_ROUNDS][2];
+        for (var i = 0; i < MAX_ROUNDS; i++) {
             result[i] = answer();
         }
         return result;
@@ -31,8 +32,7 @@ public class Even {
         return result;
     }
     private static int getRandomNumber() {
-        var maxNumber = 100000;
-        return (int) (Math.random() * (maxNumber - 1)) + 1; // может поменять диапазон
+        return (int) (Math.random() * (MAX_NUMBER - 1)) + 1;
     }
     private static String isEven(int number) {
         if (number % 2 == 0) {
