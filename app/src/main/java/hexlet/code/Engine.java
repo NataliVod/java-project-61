@@ -37,7 +37,7 @@ public class Engine {
         if (isRightAnswer) {
             System.out.println("Correct!");
         } else {
-            System.out.printf("%s is wrong answer ;(. Correct answer was %s%n", playerAnswer, rightAnswer);
+            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswer);
         }
     } // сообщение после ответа игрока
 
