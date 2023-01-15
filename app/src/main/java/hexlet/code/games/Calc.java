@@ -27,7 +27,7 @@ public class Calc {
         String[] result = new String[2];
         var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
         var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
-        var operator = Utility.getRandomNumber(1, 3);
+        var operator = Utility.getRandomNumber(ADDITION_SYMBOL, DIVISION_SYMBOL);
         String operatorSymbol = "";
         int resultNumber = 0;
         switch (operator) {

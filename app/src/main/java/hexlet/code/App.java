@@ -26,13 +26,13 @@ class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        playGame(chooseGameNumber());
+        playNewGame(chooseGameNumber());
     }
     public static int chooseGameNumber() {        //выбор игры
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-    private static void playGame(int gameNumber) { //игра
+    private static void playNewGame(int gameNumber) { //игра
         switch (gameNumber) {
             case 0:
                 break; // выходим
