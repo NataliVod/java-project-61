@@ -5,49 +5,32 @@ import java.util.Scanner;
 public class Engine {
     static final int MAX_ROUNDS = 3;
 
-    public static void startGame(String gameRules, String[][] rightAnswers) {
-        var counter = 0;
-        boolean win = false;
+    public static void startGame(String gameRules, String[][] questionsAndRightAnswers) {
         var playerName = Utility.sayHello();
         System.out.println(gameRules);
         for (var i = 0; i < MAX_ROUNDS; i++) {
-            var winThisRound = playRound(rightAnswers[i][0], rightAnswers[i][1]);
+            var winThisRound = playRound(questionsAndRightAnswers[i][0], questionsAndRightAnswers[i][1]);
             if (!winThisRound) {
-                break;
+                System.out.println("Let's try again, " + playerName + "!");
+                return;
             }
-            counter++;
         }
-        if (counter == MAX_ROUNDS) {
-            win = true;
-        }
-        endGame(win, playerName);
+
+        System.out.println("Congratulations, " + playerName + "!");
     } // 3 рануда игры
+
     private static boolean playRound(String question, String rightAnswer) {
         System.out.println(question);
         System.out.print("Your answer: ");
-        var playerAnswer = getPlayerAnswer();
-        var result = playerAnswer.equals(rightAnswer);
-        reactToPlayerAnswer(result, playerAnswer, rightAnswer);
-        return result;
-    } // один круг игры
-    private static String getPlayerAnswer() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    } // ответ игрока
-    private static void reactToPlayerAnswer(boolean isRightAnswer, String playerAnswer, String rightAnswer) {
-        if (isRightAnswer) {
+        var playerAnswer = scanner.nextLine();
+        var roundResult = playerAnswer.equals(rightAnswer);
+        if (roundResult) {
             System.out.println("Correct!");
         } else {
             System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswer);
         }
-    } // сообщение после ответа игрока
+        return roundResult;
+    } // один круг игры
 
-    private static void endGame(boolean win, String playerName) {
-        if (win) {
-            System.out.println("Congratulations, " + playerName + "!");
-        } else {
-            System.out.println("Let's try again, " + playerName + "!");
-        }
-    }
-    // сообщение в конце игры
 }

@@ -17,7 +17,7 @@ class App {
     static final int PRIME_GAME = 6;
 
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter."); //меню
+        System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
@@ -28,34 +28,21 @@ class App {
         System.out.print("Your choice: ");
         playNewGame(chooseGameNumber());
     }
-    public static int chooseGameNumber() {        //выбор игры
+    public static int chooseGameNumber() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-    private static void playNewGame(int gameNumber) { //игра
+    private static void playNewGame(int gameNumber) {
         switch (gameNumber) {
-            case 0:
-                break; // выходим
-            case GREET_GAME:
-                Cli.sayHello(); // приветствие
-                break;
-            case EVEN_GAME:
-                Even.playGame(); // четное/нечетное
-                break;
-            case CALC_GAME:
-                Calc.playGame(); // калькулятор
-                break;
-            case GCD_GAME:
-                GCD.playGame(); // НОД
-                break;
-            case PROGRESSION_GAME:
-                Progression.playGame(); // прогрессия
-                break;
-            case PRIME_GAME:
-                Prime.playGame(); // простое число
-                break;
-            default:
-                System.out.println("wrong number"); // а если не номер ?
+            case 0 -> {
+            }
+            case GREET_GAME -> Cli.sayHello();
+            case EVEN_GAME -> Even.playGame();
+            case CALC_GAME -> Calc.playGame();
+            case GCD_GAME ->   GCD.playGame();
+            case PROGRESSION_GAME -> Progression.playGame();
+            case PRIME_GAME ->  Prime.playGame();
+            default ->  System.out.println("wrong input");
         }
     }
 }

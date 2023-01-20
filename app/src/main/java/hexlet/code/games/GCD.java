@@ -8,10 +8,10 @@ public class GCD {
     static final int MAX_NUMBER = 100;
     public static void playGame() {
         String gameRules = "Find the greatest common divisor of given numbers.";
-        String[][] rightAnswers = generateRightAnswers();
+        String[][] rightAnswers = generateQuestionsAndRightAnswers();
         Engine.startGame(gameRules, rightAnswers);
     }
-    private static String[][] generateRightAnswers() {
+    private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[MAX_ROUNDS][2];
         for (var i = 0; i < MAX_ROUNDS; i++) {
             result[i] = findGCD(); //

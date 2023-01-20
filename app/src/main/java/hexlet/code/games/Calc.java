@@ -13,17 +13,19 @@ public class Calc {
 
     public static void playGame() {
         String gameRules = "What is the result of the expression?";
-        String[][] rightAnswers = generateRightAnswers();
+        String[][] rightAnswers = generateQuestionsAndRightAnswers();
         Engine.startGame(gameRules, rightAnswers);
     }
-    private static String[][] generateRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = calculate(); //
-        }
+
+
+     private static String[][] generateQuestionsAndRightAnswers() {
+       String[][] result = new String[MAX_ROUNDS][2];
+       for (var i = 0; i < MAX_ROUNDS; i++) {
+           result[i] = calculate();
+       }
         return result;
     }
-    private static String[] calculate() {         //считаем
+    private static String[] calculate() {
         String[] result = new String[2];
         var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
         var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
@@ -31,20 +33,23 @@ public class Calc {
         String operatorSymbol = "";
         int resultNumber = 0;
         switch (operator) {
-            case ADDITION_SYMBOL:
+            case ADDITION_SYMBOL -> {
                 operatorSymbol = " + ";
                 resultNumber = number1 + number2;
-                break;
-            case SYBSTRACTION_SYMBOL:
+            }
+
+            case SYBSTRACTION_SYMBOL -> {
                 operatorSymbol = " - ";
                 resultNumber = number1 - number2;
-                break;
-            case DIVISION_SYMBOL:
+            }
+
+            case DIVISION_SYMBOL -> {
                 operatorSymbol = " * ";
                 resultNumber = number1 * number2;
-                break;
-            default:
-                break;
+            }
+
+            default -> {
+            }
         }
         result[0] = "Question: " + number1 + operatorSymbol + number2 + " ";
         result[1] = String.valueOf(resultNumber);

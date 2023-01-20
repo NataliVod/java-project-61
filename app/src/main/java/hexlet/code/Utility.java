@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Utility {
+
     public static int getRandomNumber(int minNumber, int maxNumber) {
         return (int) (Math.random() * (maxNumber - minNumber)) + minNumber;
     }
@@ -16,6 +17,7 @@ public class Utility {
         System.out.println("Hello, " + playerName + "!");
         return playerName;
     }
+
 }
 
 

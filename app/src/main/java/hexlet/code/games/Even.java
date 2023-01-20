@@ -9,18 +9,18 @@ public class Even {
 
     public static void playGame() {
         String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] rightAnswers = generateRightAnswers();
+        String[][] rightAnswers = generateQuestionsAndRightAnswers();
         Engine.startGame(gameRules, rightAnswers);
     }
-    private static String[][] generateRightAnswers() {
+    private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[MAX_ROUNDS][2];
         for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = defineIfPrime();
+            result[i] = defineIfEven();
         }
         return result;
     } // набор данных для движка
 
-    private static String[] defineIfPrime() {         //пара вопрос-ответ
+    private static String[] defineIfEven() {         //пара вопрос-ответ
         String[] result = new String[2];
         var number = Utility.getRandomNumber(1, MAX_NUMBER);
         result[0] = "Question: " + number + " ";
