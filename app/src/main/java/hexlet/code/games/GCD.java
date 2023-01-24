@@ -6,20 +6,22 @@ import hexlet.code.Utility;
 public class GCD {
     static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 100;
+
     public static void playGame() {
         String gameRules = "Find the greatest common divisor of given numbers.";
         String[][] rightAnswers = generateQuestionsAndRightAnswers();
         Engine.startGame(gameRules, rightAnswers);
     }
+
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[MAX_ROUNDS][2];
         for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = findGCD(); //
+            result[i] = getNumbersAndGCD(); //
         }
         return result;
     }
 
-    private static String[] findGCD() {         //считаем
+    private static String[] getNumbersAndGCD() {         //пара вопрос-ответ
         String[] result = new String[2];
         var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
         var number2 = Utility.getRandomNumber(1, MAX_NUMBER);

@@ -17,19 +17,19 @@ public class Calc {
         Engine.startGame(gameRules, rightAnswers);
     }
 
-
-     private static String[][] generateQuestionsAndRightAnswers() {
-       String[][] result = new String[MAX_ROUNDS][2];
-       for (var i = 0; i < MAX_ROUNDS; i++) {
-           result[i] = calculate();
-       }
-        return result;
-    }
-    private static String[] calculate() {
-        String[] result = new String[2];
+    private static String[][] generateQuestionsAndRightAnswers() {
+        String[][] result = new String[MAX_ROUNDS][2];
         var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
         var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
         var operator = Utility.getRandomNumber(ADDITION_SYMBOL, DIVISION_SYMBOL);
+        for (var i = 0; i < MAX_ROUNDS; i++) {
+            result[i] = calculate(number1, number2, operator);
+        }
+        return result;
+    }
+
+    private static String[] calculate(int number1, int number2, int operator) {
+        String[] result = new String[2];
         String operatorSymbol = "";
         int resultNumber = 0;
         switch (operator) {

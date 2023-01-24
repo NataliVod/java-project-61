@@ -8,6 +8,7 @@ public class Progression {
     static final int MAX_NUMBER = 100;
     static final int MAX_NUMBERS = 15;
     static final int MIN_NUMBERS = 5;
+
     public static void playGame() {
         String gameRules = "What number is missing in the progression?";
         String[][] rightAnswers = generateQuestionsAndRightAnswers();
@@ -21,7 +22,7 @@ public class Progression {
         return result;
     }
 
-    private static String[] generateProgression() {         //считаем
+    private static String[] generateProgression() {
         var length = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
         String[] result = new String[2];
         var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
@@ -38,7 +39,6 @@ public class Progression {
                 result[0] = result[0] + nextNumber + " ";
             }
         }
-
         return result;
     }
 

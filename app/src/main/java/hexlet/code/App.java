@@ -28,10 +28,12 @@ class App {
         System.out.print("Your choice: ");
         playNewGame(chooseGameNumber());
     }
+
     public static int chooseGameNumber() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+
     private static void playNewGame(int gameNumber) {
         switch (gameNumber) {
             case 0 -> {

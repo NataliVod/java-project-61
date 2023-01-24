@@ -6,7 +6,7 @@ public class Engine {
     static final int MAX_ROUNDS = 3;
 
     public static void startGame(String gameRules, String[][] questionsAndRightAnswers) {
-        var playerName = Utility.sayHello();
+        var playerName = sayHello();
         System.out.println(gameRules);
         for (var i = 0; i < MAX_ROUNDS; i++) {
             var winThisRound = playRound(questionsAndRightAnswers[i][0], questionsAndRightAnswers[i][1]);
@@ -32,5 +32,14 @@ public class Engine {
         }
         return roundResult;
     } // один круг игры
+
+    private static String sayHello() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        Scanner scanner = new Scanner(System.in);
+        var playerName = scanner.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+        return playerName;
+    }
 
 }
