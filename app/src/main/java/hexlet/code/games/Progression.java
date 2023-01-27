@@ -20,12 +20,12 @@ public class Progression {
             var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
             var progressionStep = Utility.getRandomNumber(2, MAX_NUMBER);
             var position = Utility.getRandomNumber(0, progressionLength);
-            result[i] = generateProgressionWithSkip(progressionLength, firstNumber, progressionStep, position);
+            result[i] = getProgressionWithSkip(progressionLength, firstNumber, progressionStep, position);
         }
         return result;
     }
 
-    private static String[] generateProgressionWithSkip(int length, int firstNumber, int progressionStep, int position) {
+    private static String[] getProgressionWithSkip(int length, int firstNumber, int progressionStep, int position) {
         String[] result = new String[2];
         result[0] = "Question: " + firstNumber + " ";
         var nextNumber = firstNumber;
