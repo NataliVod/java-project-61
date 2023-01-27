@@ -15,18 +15,17 @@ public class GCD {
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = Utility.generateEmptyArray();
         for (var i = 0; i < result.length; i++) {
-            result[i] = getNumbersAndGCD();
+            var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
+            var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
+            result[i] = getNumbersAndGCD(number1, number2);
         }
         return result;
     }
 
-    private static String[] getNumbersAndGCD() {         //пара вопрос-ответ
+    private static String[] getNumbersAndGCD(int number1, int number2) {         //пара вопрос-ответ
         String[] result = new String[2];
-        var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
-        var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
         result[0] = "Question: " + number1 + " " + number2 + " ";
         result[1] = findGCD(number1, number2) + "";
-
         return result;
     }
 

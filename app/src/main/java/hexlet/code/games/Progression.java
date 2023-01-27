@@ -16,17 +16,17 @@ public class Progression {
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = Utility.generateEmptyArray();
         for (var i = 0; i < result.length; i++) {
-            result[i] = generateProgressionWithSkip();
+            var progressionLength = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
+            var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
+            var progressionStep = Utility.getRandomNumber(2, MAX_NUMBER);
+            var position = Utility.getRandomNumber(0, progressionLength);
+            result[i] = generateProgressionWithSkip(progressionLength, firstNumber, progressionStep, position);
         }
         return result;
     }
 
-    private static String[] generateProgressionWithSkip() {
-        var length = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
+    private static String[] generateProgressionWithSkip(int length, int firstNumber, int progressionStep, int position) {
         String[] result = new String[2];
-        var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
-        var progressionStep = Utility.getRandomNumber(2, MAX_NUMBER);
-        var position = Utility.getRandomNumber(0, length);
         result[0] = "Question: " + firstNumber + " ";
         var nextNumber = firstNumber;
         for (var i = 0; i < length; i++) {

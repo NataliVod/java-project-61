@@ -15,14 +15,14 @@ public class Prime {
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = Utility.generateEmptyArray();
         for (var i = 0; i < result.length; i++) {
-            result[i] = getNumberAndPrimality();
+            var number = Utility.getRandomNumber(1, MAX_NUMBER);
+            result[i] = getNumberAndPrimality(number);
         }
         return result;
     } // набор данных для движка
 
-    private static String[] getNumberAndPrimality() {         //пара вопрос-ответ
+    private static String[] getNumberAndPrimality(int number) {         //пара вопрос-ответ
         String[] result = new String[2];
-        var number = Utility.getRandomNumber(1, MAX_NUMBER);
         result[0] = "Question: " + number + " ";
         result[1] = isPrime(number);
         return result;

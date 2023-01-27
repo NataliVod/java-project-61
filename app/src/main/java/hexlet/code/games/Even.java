@@ -15,17 +15,16 @@ public class Even {
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = Utility.generateEmptyArray();
         for (var i = 0; i < result.length; i++) {
-            result[i] = getNumberAndParity();
+            var number = Utility.getRandomNumber(1, MAX_NUMBER);
+            result[i] = getNumberAndParity(number);
         }
         return result;
     } // набор данных для движка
 
-    private static String[] getNumberAndParity() {         //пара вопрос-ответ
+    private static String[] getNumberAndParity(int number) {         //пара вопрос-ответ
         String[] result = new String[2];
-        var number = Utility.getRandomNumber(1, MAX_NUMBER);
         result[0] = "Question: " + number + " ";
         result[1] = isEven(number);
-
         return result;
     }
 
