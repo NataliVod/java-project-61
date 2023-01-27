@@ -4,9 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utility;
 
 public class Even {
-    static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 100000;
-
 
     public static void playGame() {
         String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -15,8 +13,8 @@ public class Even {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        for (var i = 0; i < MAX_ROUNDS; i++) {
+        String[][] result = Utility.generateEmptyArray();
+        for (var i = 0; i < result.length; i++) {
             result[i] = getNumberAndParity();
         }
         return result;

@@ -5,7 +5,6 @@ import hexlet.code.Utility;
 
 public class Calc {
 
-    static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 100;
     static final int ADDITION_SYMBOL = 1;
     static final int SYBSTRACTION_SYMBOL = 2;
@@ -18,11 +17,11 @@ public class Calc {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
-        var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
-        var operator = Utility.getRandomNumber(ADDITION_SYMBOL, DIVISION_SYMBOL);
-        for (var i = 0; i < MAX_ROUNDS; i++) {
+        String[][] result = Utility.generateEmptyArray();
+        for (var i = 0; i < result.length; i++) {
+            var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
+            var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
+            var operator = Utility.getRandomNumber(ADDITION_SYMBOL, DIVISION_SYMBOL);
             result[i] = calculate(number1, number2, operator);
         }
         return result;

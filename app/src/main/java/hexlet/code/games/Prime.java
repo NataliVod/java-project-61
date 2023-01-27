@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utility;
 
 public class Prime {
-    static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 1000;
 
     public static void playGame() {
@@ -14,8 +13,8 @@ public class Prime {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        for (var i = 0; i < MAX_ROUNDS; i++) {
+        String[][] result = Utility.generateEmptyArray();
+        for (var i = 0; i < result.length; i++) {
             result[i] = getNumberAndPrimality();
         }
         return result;

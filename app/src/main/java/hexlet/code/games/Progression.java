@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utility;
 
 public class Progression {
-    static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 100;
     static final int MAX_NUMBERS = 15;
     static final int MIN_NUMBERS = 5;
@@ -15,14 +14,14 @@ public class Progression {
         Engine.startGame(gameRules, rightAnswers);
     }
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = generateProgression(); //
+        String[][] result = Utility.generateEmptyArray();
+        for (var i = 0; i < result.length; i++) {
+            result[i] = generateProgressionWithSkip();
         }
         return result;
     }
 
-    private static String[] generateProgression() {
+    private static String[] generateProgressionWithSkip() {
         var length = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
         String[] result = new String[2];
         var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);

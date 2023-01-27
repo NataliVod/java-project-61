@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utility;
 
 public class GCD {
-    static final int MAX_ROUNDS = 3;
     static final int MAX_NUMBER = 100;
 
     public static void playGame() {
@@ -14,9 +13,9 @@ public class GCD {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = new String[MAX_ROUNDS][2];
-        for (var i = 0; i < MAX_ROUNDS; i++) {
-            result[i] = getNumbersAndGCD(); //
+        String[][] result = Utility.generateEmptyArray();
+        for (var i = 0; i < result.length; i++) {
+            result[i] = getNumbersAndGCD();
         }
         return result;
     }
