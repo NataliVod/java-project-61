@@ -28,13 +28,12 @@ public class Calc {
 
     private static String[] calculate(int number1, int number2, String operator) {
         String[] result = new String[2];
-        int resultNumber = 0;
-        switch (operator) {
-            case " + " -> resultNumber = number1 + number2;
-            case " - " -> resultNumber = number1 - number2;
-            case " * " -> resultNumber = number1 * number2;
-            default -> { }
-        }
+        int resultNumber = switch (operator) {
+            case " + " -> number1 + number2;
+            case " - " -> number1 - number2;
+            case " * " -> number1 * number2;
+            default -> 0;
+        };
         result[0] = "Question: " + number1 + operator + number2 + " ";
         result[1] = String.valueOf(resultNumber);
         return result;
