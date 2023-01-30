@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    static final int MAX_ROUNDS = 3;
+    public static final int MAX_ROUNDS = 3;
 
     public static void startGame(String gameRules, String[][] questionsAndRightAnswers) {
         var playerName = sayHello();
@@ -17,7 +17,7 @@ public class Engine {
         }
 
         System.out.println("Congratulations, " + playerName + "!");
-    } // 3 рануда игры
+    }
 
     private static boolean playRound(String question, String rightAnswer) {
         System.out.println(question);
@@ -31,7 +31,7 @@ public class Engine {
             System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswer);
         }
         return roundResult;
-    } // один круг игры
+    }
 
     private static String sayHello() {
         System.out.println("Welcome to the Brain Games!");

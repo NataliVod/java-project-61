@@ -6,9 +6,6 @@ public class Utility {
         return (int) (Math.random() * (maxNumber - minNumber)) + minNumber;
     }
 
-    public static String[][] generateEmptyArray() {
-        return new String[Engine.MAX_ROUNDS][2];
-    }
 }
 
 

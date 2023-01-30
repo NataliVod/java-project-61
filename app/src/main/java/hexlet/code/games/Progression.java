@@ -14,7 +14,7 @@ public class Progression {
         Engine.startGame(gameRules, rightAnswers);
     }
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = Utility.generateEmptyArray();
+        String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
             var progressionLength = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
             var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);

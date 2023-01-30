@@ -13,7 +13,7 @@ public class GCD {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = Utility.generateEmptyArray();
+        String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
             var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
             var number2 = Utility.getRandomNumber(1, MAX_NUMBER);

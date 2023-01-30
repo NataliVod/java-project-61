@@ -13,22 +13,24 @@ public class Prime {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = Utility.generateEmptyArray();
+        String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
             var number = Utility.getRandomNumber(1, MAX_NUMBER);
             result[i] = getNumberAndPrimality(number);
         }
         return result;
-    } // набор данных для движка
+    }
 
     private static String[] getNumberAndPrimality(int number) {         //пара вопрос-ответ
+        String yesAnswer = "yes";
+        String noAnswer = "no";
         String[] result = new String[2];
         result[0] = "Question: " + number + " ";
-        result[1] = isPrime(number);
+        result[1] = isPrime(number) ? yesAnswer : noAnswer;
         return result;
     }
 
-    private static String isPrime(int number) {
+    private static boolean isPrime(int number) {
         var result = true;
         for (var i = 2; i < number; i++) {
             if (number % i == 0) {
@@ -36,6 +38,6 @@ public class Prime {
                 break;
             }
         }
-        return result ? "yes" : "no";
+        return result;
     }
 }

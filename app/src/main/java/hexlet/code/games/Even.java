@@ -13,25 +13,24 @@ public class Even {
     }
 
     private static String[][] generateQuestionsAndRightAnswers() {
-        String[][] result = Utility.generateEmptyArray();
+        String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
             var number = Utility.getRandomNumber(1, MAX_NUMBER);
             result[i] = getNumberAndParity(number);
         }
         return result;
-    } // набор данных для движка
+    }
 
     private static String[] getNumberAndParity(int number) {         //пара вопрос-ответ
+        String yesAnswer = "yes";
+        String noAnswer = "no";
         String[] result = new String[2];
         result[0] = "Question: " + number + " ";
-        result[1] = isEven(number);
+        result[1] = isEven(number) ? yesAnswer : noAnswer;
         return result;
     }
 
-    private static String isEven(int number) {
-        if (number % 2 == 0) {
-            return "yes";
-        }
-        return "no";
+    private static boolean isEven(int number) {
+        return (number % 2 == 0);
     }
 }
