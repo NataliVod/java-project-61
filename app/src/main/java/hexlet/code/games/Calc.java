@@ -16,7 +16,7 @@ public class Calc {
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
-            String[] operators = {"+", "-", "*"};
+            String[] operators = {" + ", " - ", " * "};
             var number1 = Utility.getRandomNumber(1, MAX_NUMBER);
             var number2 = Utility.getRandomNumber(1, MAX_NUMBER);
             var operatorNumber = Utility.getRandomNumber(0, operators.length);
@@ -30,9 +30,9 @@ public class Calc {
         String[] result = new String[2];
         int resultNumber = 0;
         switch (operator) {
-            case "+" -> resultNumber = number1 + number2;
-            case "-" -> resultNumber = number1 - number2;
-            case "*" -> resultNumber = number1 * number2;
+            case " + " -> resultNumber = number1 + number2;
+            case " - " -> resultNumber = number1 - number2;
+            case " * " -> resultNumber = number1 * number2;
             default -> { }
         }
         result[0] = "Question: " + number1 + operator + number2 + " ";
