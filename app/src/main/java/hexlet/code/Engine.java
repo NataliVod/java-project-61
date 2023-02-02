@@ -21,7 +21,7 @@ public class Engine {
             var question = questionsAndRightAnswers[i][0];
             var rightAnswer = questionsAndRightAnswers[i][1];
 
-            System.out.println("Question " + question + " ");
+            System.out.println("Question " + question);
             System.out.print("Your answer: ");
 
             var playerAnswer = scanner.nextLine();
