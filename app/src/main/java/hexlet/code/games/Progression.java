@@ -22,10 +22,10 @@ public class Progression {
             var firstNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
             var progressionStep = Utils.getRandomNumber(MIN_NUMBER+1, MAX_NUMBER);
             var hiddenIndex = Utils.getRandomNumber(0, progressionLength);
-            String[] progression = makeProgression(firstNumber, progressionStep, progressionLength);
-            result[i][0] = progression[hiddenIndex];
+            String[] progression = makeProgression(progressionLength, firstNumber, progressionStep);
+            result[i][1] = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
-            result[i][1] = String.join(" ", progression);
+            result[i][0] = String.join(" ", progression);
         }
         return result;
     }
