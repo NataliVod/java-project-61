@@ -33,13 +33,14 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        var result = true;
-        for (var i = 2; i < number; i++) {
+        if (number < 2) {
+            return false;
+        }
+        for (var i = 2; i * i <= number; i++) {
             if (number % i == 0) {
-                result = false;
-                break;
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }
