@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id 'com.github.ben-manes.versions' version '0.41.0'
     id 'application'
@@ -13,11 +12,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-}
 application {
     mainClass = 'hexlet.code.App'
 }

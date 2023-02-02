@@ -5,41 +5,38 @@ import java.util.Scanner;
 public class Engine {
     public static final int MAX_ROUNDS = 3;
 
-    public static void startGame(String gameRules, String[][] questionsAndRightAnswers) {
-        var playerName = sayHello();
-        System.out.println(gameRules);
+    public static void startGame(String gameDescription, String[][] questionsAndRightAnswers) {
+
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+
+        Scanner scanner = new Scanner(System.in);
+        var playerName = scanner.nextLine();
+
+        System.out.println("Hello, " + playerName + "!");
+        System.out.println(gameDescription);
+
         for (var i = 0; i < MAX_ROUNDS; i++) {
-            var winThisRound = playRound(questionsAndRightAnswers[i][0], questionsAndRightAnswers[i][1]);
-            if (!winThisRound) {
+
+            var question = questionsAndRightAnswers[i][0];
+            var rightAnswer = questionsAndRightAnswers[i][1];
+
+            System.out.println("Question " + question + " ");
+            System.out.print("Your answer: ");
+
+            var playerAnswer = scanner.nextLine();
+            var winThisRound = playerAnswer.equals(rightAnswer);
+
+            if (winThisRound) {
+                System.out.println("Correct!");
+
+            } else {
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswer);
                 System.out.println("Let's try again, " + playerName + "!");
                 return;
             }
         }
-
         System.out.println("Congratulations, " + playerName + "!");
-    }
-
-    private static boolean playRound(String question, String rightAnswer) {
-        System.out.println(question);
-        System.out.print("Your answer: ");
-        Scanner scanner = new Scanner(System.in);
-        var playerAnswer = scanner.nextLine();
-        var roundResult = playerAnswer.equals(rightAnswer);
-        if (roundResult) {
-            System.out.println("Correct!");
-        } else {
-            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswer);
-        }
-        return roundResult;
-    }
-
-    private static String sayHello() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        Scanner scanner = new Scanner(System.in);
-        var playerName = scanner.nextLine();
-        System.out.println("Hello, " + playerName + "!");
-        return playerName;
     }
 
 }

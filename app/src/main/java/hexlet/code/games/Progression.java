@@ -1,43 +1,42 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Utility;
+import hexlet.code.Utils;
 
 public class Progression {
-    static final int MAX_NUMBER = 100;
-    static final int MAX_NUMBERS = 15;
-    static final int MIN_NUMBERS = 5;
+
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 100;
+    private static final int MIN_NUMBERS = 5;
+    private static final int MAX_NUMBERS = 15;
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
 
     public static void playGame() {
-        String gameRules = "What number is missing in the progression?";
         String[][] rightAnswers = generateQuestionsAndRightAnswers();
-        Engine.startGame(gameRules, rightAnswers);
+        Engine.startGame(GAME_DESCRIPTION, rightAnswers);
     }
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[Engine.MAX_ROUNDS][2];
         for (var i = 0; i < result.length; i++) {
-            var progressionLength = Utility.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
-            var firstNumber = Utility.getRandomNumber(1, MAX_NUMBER);
-            var progressionStep = Utility.getRandomNumber(2, MAX_NUMBER);
-            var position = Utility.getRandomNumber(0, progressionLength);
-            result[i] = getProgressionWithSkip(progressionLength, firstNumber, progressionStep, position);
+            var progressionLength = Utils.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
+            var firstNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            var progressionStep = Utils.getRandomNumber(MIN_NUMBER+1, MAX_NUMBER);
+            var hiddenIndex = Utils.getRandomNumber(0, progressionLength);
+            String[] progression = makeProgression(firstNumber, progressionStep, progressionLength);
+            result[i][0] = progression[hiddenIndex];
+            progression[hiddenIndex] = "..";
+            result[i][1] = String.join(" ", progression);
         }
         return result;
     }
 
-    private static String[] getProgressionWithSkip(int length, int firstNumber, int progressionStep, int position) {
-        String[] result = new String[2];
-        result[0] = "Question: " + firstNumber + " ";
+    private static String[] makeProgression(int length, int firstNumber, int progressionStep) {
+        String[] result = new String[length];
         var nextNumber = firstNumber;
         for (var i = 0; i < length; i++) {
+            result[i] = nextNumber + "";
             nextNumber = nextNumber + progressionStep;
-            if (i == position) {
-                result[1] = nextNumber + "";
-                result[0] = result[0] + ".." + " ";
-            } else {
-                result[0] = result[0] + nextNumber + " ";
             }
-        }
         return result;
     }
 
