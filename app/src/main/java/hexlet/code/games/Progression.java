@@ -20,7 +20,7 @@ public class Progression {
         for (var i = 0; i < result.length; i++) {
             var progressionLength = Utils.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
             var firstNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-            var progressionStep = Utils.getRandomNumber(MIN_NUMBER+1, MAX_NUMBER);
+            var progressionStep = Utils.getRandomNumber(MIN_NUMBER + 1, MAX_NUMBER);
             var hiddenIndex = Utils.getRandomNumber(0, progressionLength);
             String[] progression = makeProgression(progressionLength, firstNumber, progressionStep);
             result[i][1] = progression[hiddenIndex];
@@ -36,7 +36,7 @@ public class Progression {
         for (var i = 0; i < length; i++) {
             result[i] = nextNumber + "";
             nextNumber = nextNumber + progressionStep;
-            }
+        }
         return result;
     }
 
