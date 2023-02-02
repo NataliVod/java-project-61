@@ -32,7 +32,20 @@ Progression      https://asciinema.org/a/DteSwJkWbLaCroU0DD3s5Qw6c
 
 Prime            https://asciinema.org/a/cswR6y1L00WSHVMc8Ih4I7Thm
 
+
+## Setup
+```sh
+make build
+```
+
 ## Run
 ```sh
 make run-dist
 ```
+
+## Run checkstyle
+```sh
+make lint
+```
+
+
