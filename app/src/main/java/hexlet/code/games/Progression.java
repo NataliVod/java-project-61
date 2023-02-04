@@ -17,15 +17,15 @@ public class Progression {
     }
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[Engine.MAX_ROUNDS][2];
-        for (var i = 0; i < result.length; i++) {
+        for (String[] row :result) {
             var progressionLength = Utils.getRandomNumber(MIN_NUMBERS, MAX_NUMBERS);
             var firstNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
             var progressionStep = Utils.getRandomNumber(MIN_NUMBER + 1, MAX_NUMBER);
             var hiddenIndex = Utils.getRandomNumber(0, progressionLength);
             String[] progression = makeProgression(progressionLength, firstNumber, progressionStep);
-            result[i][1] = progression[hiddenIndex];
+            row[1] = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
-            result[i][0] = String.join(" ", progression);
+            row[0] = String.join(" ", progression);
         }
         return result;
     }
@@ -33,7 +33,7 @@ public class Progression {
     private static String[] makeProgression(int length, int firstNumber, int progressionStep) {
         String[] result = new String[length];
         var nextNumber = firstNumber;
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i < result.length; i++) {
             result[i] = nextNumber + "";
             nextNumber = nextNumber + progressionStep;
         }

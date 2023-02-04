@@ -23,11 +23,9 @@ public class Even {
     }
 
     private static String[] getNumberAndParity(int number) {         //пара вопрос-ответ
-        String yesAnswer = "yes";
-        String noAnswer = "no";
         String[] result = new String[2];
-        result[0] = number + "";
-        result[1] = isEven(number) ? yesAnswer : noAnswer;
+        result[0] = String.valueOf(number);
+        result[1] = isEven(number) ? "yes" : "no";
         return result;
     }
 

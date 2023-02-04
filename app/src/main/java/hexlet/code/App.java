@@ -44,7 +44,7 @@ class App {
             case GCD_GAME ->   GCD.playGame();
             case PROGRESSION_GAME -> Progression.playGame();
             case PRIME_GAME ->  Prime.playGame();
-            default ->  System.out.println("wrong input");
+            default ->  throw new RuntimeException("Unknown input: " + gameNumber);
         }
     }
 }

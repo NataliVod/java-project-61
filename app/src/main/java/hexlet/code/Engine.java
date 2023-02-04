@@ -16,10 +16,10 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
         System.out.println(gameDescription);
 
-        for (var i = 0; i < MAX_ROUNDS; i++) {
+        for (String[] questionAndRightAnswer : questionsAndRightAnswers) {
 
-            var question = questionsAndRightAnswers[i][0];
-            var rightAnswer = questionsAndRightAnswers[i][1];
+            var question = questionAndRightAnswer[0];
+            var rightAnswer = questionAndRightAnswer[1];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");

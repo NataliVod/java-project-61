@@ -19,13 +19,13 @@ public class Calc {
 
     private static String[][] generateQuestionsAndRightAnswers() {
         String[][] result = new String[Engine.MAX_ROUNDS][2];
-        for (var i = 0; i < result.length; i++) {
+        for (String[] row : result) {
             var number1 = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
             var number2 = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
             var operatorNumber = Utils.getRandomNumber(0, OPERATORS.length);
             var operator = OPERATORS[operatorNumber];
-            result[i][0] = number1 + operator + number2 + "";
-            result[i][1] = String.valueOf(calculate(number1, number2, operator));
+            row[0] = number1 + operator + number2 + "";
+            row[1] = String.valueOf(calculate(number1, number2, operator));
         }
         return result;
     }
@@ -35,7 +35,7 @@ public class Calc {
             case " + " -> number1 + number2;
             case " - " -> number1 - number2;
             case " * " -> number1 * number2;
-            default -> 0;
+            default -> throw new RuntimeException("Unknown input: " + operator);
         };
 
     }

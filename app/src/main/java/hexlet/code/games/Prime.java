@@ -24,11 +24,9 @@ public class Prime {
     }
 
     private static String[] getNumberAndPrimality(int number) {         //пара вопрос-ответ
-        String yesAnswer = "yes";
-        String noAnswer = "no";
         String[] result = new String[2];
-        result[0] = number + "";
-        result[1] = isPrime(number) ? yesAnswer : noAnswer;
+        result[0] = String.valueOf(number);
+        result[1] = isPrime(number) ? "yes" : "no";
         return result;
     }
 
